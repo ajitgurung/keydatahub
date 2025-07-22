@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">Key Hub</string>
     <string name="title_activity_main">Key Hub</string>
-    <string name="package_name">ca.ajitgurung.test</string>
-    <string name="custom_url_scheme">ca.ajitgurung.test</string>
+    <string name="package_name">com.ajitgurung.test</string>
+    <string name="custom_url_scheme">com.ajitgurung.test</string>
 </resources>

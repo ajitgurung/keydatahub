@@ -1,5 +1,10 @@
 {
-  "appId": "ca.ajitgurung.test",
-  "appName": "Key Hub",
-  "webDir": "www.test.ajitgurung.ca"
+  "appId": "com.keydatahub.app",
+  "appName": "KeyDataHub",
+  "webDir": "www",             <-- THIS MUST BE A FOLDER, NOT A URL
+  "bundledWebRuntime": false,
+  "server": {
+    "url": "https://test.ajitgurung.ca",  <-- Your live website URL here
+    "cleartext": true
+  }
 }
