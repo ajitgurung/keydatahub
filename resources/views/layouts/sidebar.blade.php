@@ -5,7 +5,7 @@
         <a href="{{route('dashboard')}}" class="brand-link">
             <!--begin::Brand Image-->
             <img
-                src="{{asset('dashboard/images/img/AdminLTELogo.png')}}"
+                src="{{asset('dash/images/img/AdminLTELogo.png')}}"
                 alt="AdminLTE Logo"
                 class="brand-image opacity-75 shadow" />
             <!--end::Brand Image-->
@@ -27,7 +27,7 @@
                 data-accordion="false">
                 <li class="nav-item">
                     <a href="{{route('dashboard')}}" class="nav-link">
-                        @if(auth()->user()->isAdmin())
+                        @if(auth()->user()->isAdmin() || auth()->user()->isEditor())
                         <i class="nav-icon bi bi-speedometer"></i>
                         <p>Dashboard</p>
                         @else
@@ -36,8 +36,8 @@
                         @endif
                     </a>
                 </li>
-                @if(auth()->user()->isAdmin())
-                @can('admin-only')
+                @if(auth()->user()->isAdmin() || auth()->user()->isEditor())
+
                 <li class="nav-item"><a href="#" class="nav-link">
                         <i class="nav-icon bi bi-collection"></i>
                         <p>
@@ -140,7 +140,8 @@
                         </li>
                     </ul>
                 </li>
-
+                @if(auth()->user()->isAdmin())
+                @can('admin-only')
                 <li class="nav-item"><a href="#" class="nav-link">
                         <i class="nav-icon bi bi-people"></i>
                         <p>
@@ -163,7 +164,14 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.income')}}" class="nav-link">
+                        <i class="nav-icon bi bi-wallet"></i>
+                        <p>Revenue</p>
+                    </a>
+                </li>
                 @endcan
+                @endif
                 @endif
 
                 <li class="nav-item">

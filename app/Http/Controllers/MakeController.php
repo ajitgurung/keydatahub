@@ -13,7 +13,7 @@ class MakeController extends Controller
      */
     public function index()
     {
-        $makes = Make::all();
+        $makes = Make::paginate(10);
         return view('makes.index', compact('makes'));
     }
 
@@ -38,7 +38,7 @@ class MakeController extends Controller
         $path = null;
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('makes', 'public');
+            $path = $request->file('image')->store('makeimgs', 'public');
         }
 
         Make::firstOrCreate([
@@ -87,7 +87,7 @@ class MakeController extends Controller
             }
 
             // Store new image
-            $path = $request->file('image')->store('makes', 'public');
+            $path = $request->file('image')->store('makeimgs', 'public');
             $make->image = $path;
         }
 

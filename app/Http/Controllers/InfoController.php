@@ -16,7 +16,7 @@ class InfoController extends Controller
      */
     public function index()
     {
-        $infos = Info::all();
+        $infos = Info::paginate(10);
         return view('infos.index', compact('infos'));
     }
 
@@ -37,7 +37,7 @@ class InfoController extends Controller
         $request->validate([
             'year_id' => 'required|exists:years,id',
             'sections' => 'required|array',
-            'image' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048'
+            'image' => 'image|mimes:jpg,jpeg,png,gif,svg,webp|max:2048'
         ]);
 
         // Check if an info already exists for this year_id

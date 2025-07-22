@@ -12,6 +12,14 @@ class SubscriptionController extends Controller
         $user = $request->user();
         $intent = $user->createSetupIntent();
 
+        if ($request->has('status') && $request->has('message')) {
+            if ($request->status === 'success') {
+                session()->flash('success', $request->message);
+            } elseif ($request->status === 'error') {
+                session()->flash('error', $request->message);
+            }
+        }
+
         return view('subscription', [
             'intent' => $intent,
             'subscription' => $user->subscription('default'),

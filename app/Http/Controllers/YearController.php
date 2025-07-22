@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Make;
-use App\models\Model;
-use App\models\Year;
+use App\Models\Model;
+use App\Models\Year;
 use Illuminate\Http\Request;
 
 class YearController extends Controller
@@ -14,7 +14,7 @@ class YearController extends Controller
      */
     public function index()
     {
-        $years = Year::all();
+        $years = Year::paginate(10);
         return view('years.index', compact('years'));
     }
 
@@ -34,7 +34,7 @@ class YearController extends Controller
     {
         $request->validate([
             'model_id' => 'required|exists:models,id',
-            'year' => 'required',
+            'year' => ['required', 'regex:/^\d+(,\d+)*$/'],
         ]);
 
         $years = explode(',', $request->year);

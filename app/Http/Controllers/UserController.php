@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Notifications\UserActivityNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\Rule;
@@ -61,6 +62,13 @@ class UserController extends Controller
 
         // Fire registered event to send verification email
         event(new Registered($user));
+
+        $admins = User::where('role', 'admin')->get();
+        $message = "User {$user->name} with email: {$user->email} has just registered."; // Or subscription message
+
+        foreach ($admins as $admin) {
+            $admin->notify(new UserActivityNotification($message));
+        }
 
         if (in_array($validated['role'], ['admin', 'editor'])) {
             // Replace 'lifetime-plan-id' with your Stripe plan ID for lifetime access
@@ -128,7 +136,18 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $subscription = $user->subscription('default');
+
+        if ($subscription && $subscription->valid()) {
+            $subscription->cancelNow();
+        }
+        if ($user->delete()) {
+
+            return redirect()->back()->with('success', 'User Deleted Successfully!');
+        } else {
+            return redirect()->back()->with('error', 'User Failed to be Deleted!');
+        }
     }
 
     public function cancelSubscription(User $user)
@@ -138,6 +157,18 @@ class UserController extends Controller
         if ($subscription && $subscription->valid()) {
             $subscription->cancel();
             return back()->with('status', 'Subscription cancelled successfully.');
+        }
+
+        return back()->with('status', 'User is not subscribed.');
+    }
+
+    public function endGracePeriod(User $user)
+    {
+        $subscription = $user->subscription('default');
+
+        if ($subscription && $subscription->valid()) {
+            $subscription->cancelNow();
+            return back()->with('status', 'Grace Period ended successfully.');
         }
 
         return back()->with('status', 'User is not subscribed.');

@@ -31,171 +31,74 @@
         <div class="container-fluid">
             <!--begin::Row-->
             <div class="row">
-                <!--begin::Col-->
+                <!-- Total Active Subscribers -->
+                <!--<div class="col-lg-3 col-6">-->
+                <!--    <div class="small-box text-bg-primary">-->
+                <!--        <div class="inner">-->
+                <!--            <h3>{{ $totalSubscribers }}</h3>-->
+                <!--            <p>Total Active Subscribers</p>-->
+                <!--        </div>-->
+                <!--        <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">-->
+                <!--            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zM8 11c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2 0-6 1-6 3v3h12v-3c0-2-4-3-6-3zM16 13c-.29 0-.62.02-.97.05a4.978 4.978 0 00-4.06 0C10.62 13.02 10.29 13 10 13c-2 0-6 1-6 3v3h12v-3c0-2-4-3-6-3z"/>-->
+                <!--        </svg>-->
+                <!--    </div>-->
+                <!--</div>-->
+
+                <!-- Monthly Subscribers -->
                 <div class="col-lg-3 col-6">
-                    <!--begin::Small Box Widget 1-->
-                    <div class="small-box text-bg-primary">
-                        <div class="inner">
-                            <h3>150</h3>
-                            <p>New Orders</p>
-                        </div>
-                        <svg
-                            class="small-box-icon"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <path
-                                d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z"></path>
-                        </svg>
-                        <a
-                            href="#"
-                            class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                            More info <i class="bi bi-link-45deg"></i>
-                        </a>
-                    </div>
-                    <!--end::Small Box Widget 1-->
-                </div>
-                <!--end::Col-->
-                <div class="col-lg-3 col-6">
-                    <!--begin::Small Box Widget 2-->
                     <div class="small-box text-bg-success">
                         <div class="inner">
-                            <h3>53<sup class="fs-5">%</sup></h3>
-                            <p>Bounce Rate</p>
+                            <h3>{{ $monthlySubscribers }}</h3>
+                            <p>Monthly Subscribers</p>
                         </div>
-                        <svg
-                            class="small-box-icon"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <path
-                                d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z"></path>
+                        <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 14H5V9h14v9zM12 12v5l4.28 2.54.72-1.21-3.5-2.08V12z" />
                         </svg>
-                        <a
-                            href="#"
-                            class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                            More info <i class="bi bi-link-45deg"></i>
-                        </a>
                     </div>
-                    <!--end::Small Box Widget 2-->
                 </div>
-                <!--end::Col-->
+
+                <!-- Yearly Subscribers -->
                 <div class="col-lg-3 col-6">
-                    <!--begin::Small Box Widget 3-->
                     <div class="small-box text-bg-warning">
                         <div class="inner">
-                            <h3>44</h3>
-                            <p>User Registrations</p>
+                            <h3>{{ $yearlySubscribers }}</h3>
+                            <p>Yearly Subscribers</p>
                         </div>
-                        <svg
-                            class="small-box-icon"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <path
-                                d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z"></path>
+                        <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M17 3h-1V1h-2v2H10V1H8v2H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2zm0 16H7V8h10v11z" />
                         </svg>
-                        <a
-                            href="#"
-                            class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
-                            More info <i class="bi bi-link-45deg"></i>
-                        </a>
                     </div>
-                    <!--end::Small Box Widget 3-->
                 </div>
-                <!--end::Col-->
+
+                <!-- Grace Period Subscribers -->
                 <div class="col-lg-3 col-6">
-                    <!--begin::Small Box Widget 4-->
+                    <div class="small-box text-bg-info">
+                        <div class="inner">
+                            <h3>{{ $gracePeriod }}</h3>
+                            <p>Grace Period Subscribers</p>
+                        </div>
+                        <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M6 2v6h.01L10 11l-4 3.99V22h12v-7.01l-4-4.99 3.99-3.99H18V2H6zm8 14H10v-2h4v2z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Canceled Subscribers -->
+                <div class="col-lg-3 col-6">
                     <div class="small-box text-bg-danger">
                         <div class="inner">
-                            <h3>65</h3>
-                            <p>Unique Visitors</p>
+                            <h3>{{ $canceledSubscribers }}</h3>
+                            <p>Canceled Subscribers</p>
                         </div>
-                        <svg
-                            class="small-box-icon"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <path
-                                clip-rule="evenodd"
-                                fill-rule="evenodd"
-                                d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"></path>
-                            <path
-                                clip-rule="evenodd"
-                                fill-rule="evenodd"
-                                d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"></path>
+                        <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M18.364 5.636a1 1 0 00-1.414 0L12 10.586 7.05 5.636a1 1 0 10-1.414 1.414L10.586 12l-4.95 4.95a1 1 0 101.414 1.414L12 13.414l4.95 4.95a1 1 0 001.414-1.414L13.414 12l4.95-4.95a1 1 0 000-1.414z" />
                         </svg>
-                        <a
-                            href="#"
-                            class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                            More info <i class="bi bi-link-45deg"></i>
-                        </a>
                     </div>
-                    <!--end::Small Box Widget 4-->
                 </div>
-                <!--end::Col-->
             </div>
+
+
             <!--end::Row-->
-            <!--begin::Row-->
-            <div class="row">
-                <!-- Start col -->
-                <div class="col-lg-7 connectedSortable">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <h3 class="card-title">Sales Value</h3>
-                        </div>
-                        <div class="card-body">
-                            <div id="revenue-chart"></div>
-                        </div>
-                    </div>
-                    <!-- /.card -->
-                </div>
-                <!-- /.Start col -->
-                <!-- Start col -->
-                <div class="col-lg-5 connectedSortable">
-                    <div class="card text-white bg-primary bg-gradient border-primary mb-4">
-                        <div class="card-header border-0">
-                            <h3 class="card-title">Sales Value</h3>
-                            <div class="card-tools">
-                                <button
-                                    type="button"
-                                    class="btn btn-primary btn-sm"
-                                    data-lte-toggle="card-collapse">
-                                    <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
-                                    <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div id="world-map" style="height: 220px"></div>
-                        </div>
-                        <div class="card-footer border-0">
-                            <!--begin::Row-->
-                            <div class="row">
-                                <div class="col-4 text-center">
-                                    <div id="sparkline-1" class="text-dark"></div>
-                                    <div class="text-white">Visitors</div>
-                                </div>
-                                <div class="col-4 text-center">
-                                    <div id="sparkline-2" class="text-dark"></div>
-                                    <div class="text-white">Online</div>
-                                </div>
-                                <div class="col-4 text-center">
-                                    <div id="sparkline-3" class="text-dark"></div>
-                                    <div class="text-white">Sales</div>
-                                </div>
-                            </div>
-                            <!--end::Row-->
-                        </div>
-                    </div>
-                </div>
-                <!-- /.Start col -->
-            </div>
-            <!-- /.row (main row) -->
 
             <!-- Make/Model/Year Select -->
             <div class="row mb-4">
